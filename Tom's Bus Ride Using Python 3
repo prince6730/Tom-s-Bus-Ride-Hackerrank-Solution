@@ -1,0 +1,76 @@
+One time, by bus, Tom was heading home. He found the number on his bus seat was not blessed. A blessed seat is a six-digit seat number, in which the sum of its first three digits is equivalent to the total of the last three digits.
+
+For example, number 165912 is considered blessed because sum of 1+6+5 = 12, and 9+1+2=12.
+
+Since the number on the seat was not blessed, Tom needs your help to find the next blessed seat number.
+
+For example, if Tom's ticket number is 165901, then the next lucky ticket number is 165903.
+
+Given Tom's current seat number, find and print the next blessed seat number.
+
+Function Description
+luckyTrainTicket() function has the following parameter:
+- a an integer denoting the six digit number on the seat
+
+Input Format
+
+The first line contains an integer, x, denoting the six-digit number on the seat.
+
+Constraints
+
+image
+
+Output Format
+
+For the given input find and print the next blessed seat number.
+
+Sample Input 0
+
+555555
+Sample Output 0
+
+555564
+Explanation 0
+
+After 555555 the first lucky number is 555564, where the sum of first three digits 5+5+5 is equal to the sum of last three digits 5+6+4.
+
+
+
+
+Solution:-
+
+
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'luckyTrainTicket' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER a as parameter.
+#
+
+def luckyTrainTicket(a):
+    a += 1
+    while True:
+        if sum([int(c) for c in str(a)[:3]]) == sum([int(c) for c in str(a)[3:]]):
+            return a
+        a += 1
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    result = luckyTrainTicket(n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
